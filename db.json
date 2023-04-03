@@ -2,8 +2,21 @@
   "posts": [
     {
       "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "title": "Json-server 1",
+      "content": "Content of post 1",
+      "author": "typicode1"
+    },
+    {
+      "id": 2,
+      "title": "Json-server title 2",
+      "content": "Content of post 2",
+      "author": "typicode2"
+    },
+    {
+      "id": 3,
+      "title": "Json-server title 3",
+      "content": "Content of post 3",
+      "author": "typicode3"
     }
   ],
   "comments": [

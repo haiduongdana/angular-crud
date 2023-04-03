@@ -22,21 +22,15 @@ export class PostsFormComponent implements OnInit {
 
   constructor(
     private _fb: FormBuilder,
-    private _empService: PostService,
+    private _postService: PostService,
     private _dialogRef: MatDialogRef<PostsFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _coreService: CoreService
   ) {
     this.empForm = this._fb.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      education: '',
-      company: '',
-      experience: '',
-      package: '',
+      title: '',
+      content: '',
+      author: '',
     });
   }
 
@@ -47,7 +41,7 @@ export class PostsFormComponent implements OnInit {
   onFormSubmit() {
     if (this.empForm.valid) {
       if (this.data) {
-        this._empService
+        this._postService
           .updatePost(this.data.id, this.empForm.value)
           .subscribe({
             next: (val: any) => {
@@ -59,7 +53,7 @@ export class PostsFormComponent implements OnInit {
             },
           });
       } else {
-        this._empService.addPost(this.empForm.value).subscribe({
+        this._postService.addPost(this.empForm.value).subscribe({
           next: (val: any) => {
             this._coreService.openSnackBar('Post added successfully');
             this._dialogRef.close(true);

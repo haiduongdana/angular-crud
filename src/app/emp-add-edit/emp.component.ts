@@ -1,23 +1,31 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PostsFormComponent } from './posts.form.component';
-import { PostService } from '../services/post.service';
+import { EmpAddEditComponent } from './emp-add-edit.component';
+import { EmployeeService } from '../services/employee.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '../core/core.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss'],
+  selector: 'emp-root',
+  templateUrl: './emp.component.html',
+  styleUrls: ['./emp.component.scss'],
 })
-export class PostComponent implements OnInit {
+
+export class EmpComponent implements OnInit {
   displayedColumns: string[] = [
     'id',
-    'title',
-    'content',
-    'author',
+    'firstName',
+    'lastName',
+    'email',
+    'dob',
+    'gender',
+    'education',
+    'company',
+    'experience',
+    'package',
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
@@ -26,27 +34,27 @@ export class PostComponent implements OnInit {
 
   constructor(
     private _dialog: MatDialog,
-    private _postService: PostService,
+    private _empService: EmployeeService,
     private _coreService: CoreService
   ) {}
 
   ngOnInit(): void {
-    this.getPostList();
+    this.getEmployeeList();
   }
 
-  openAddEditPostForm() {
-    const dialogRef = this._dialog.open(PostsFormComponent);
+  openAddEditEmpForm() {
+    const dialogRef = this._dialog.open(EmpAddEditComponent);
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          this.getPostList();
+          this.getEmployeeList();
         }
       },
     });
   }
 
-  getPostList() {
-    this._postService.getPostList().subscribe({
+  getEmployeeList() {
+    this._empService.getEmployeeList().subscribe({
       next: (res) => {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.sort = this.sort;
@@ -65,25 +73,25 @@ export class PostComponent implements OnInit {
     }
   }
 
-  deletePost(id: number) {
-    this._postService.deletePost(id).subscribe({
+  deleteEmployee(id: number) {
+    this._empService.deleteEmployee(id).subscribe({
       next: (res) => {
-        this._coreService.openSnackBar('Post deleted!', 'done');
-        this.getPostList();
+        this._coreService.openSnackBar('Employee deleted!', 'done');
+        this.getEmployeeList();
       },
       error: console.log,
     });
   }
 
   openEditForm(data: any) {
-    const dialogRef = this._dialog.open(PostsFormComponent, {
+    const dialogRef = this._dialog.open(EmpAddEditComponent, {
       data,
     });
 
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
-          this.getPostList();
+          this.getEmployeeList();
         }
       },
     });
