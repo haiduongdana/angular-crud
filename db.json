@@ -1,10 +1,10 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Json-server 1",
-      "content": "Content of post 1",
-      "author": "typicode1"
+      "title": "Json-server 12",
+      "content": "Content of post 12",
+      "author": "typicode12",
+      "id": 1
     },
     {
       "id": 2,
@@ -17,6 +17,12 @@
       "title": "Json-server title 3",
       "content": "Content of post 3",
       "author": "typicode3"
+    },
+    {
+      "title": "QWErty",
+      "content": "ZXCVBASDF   afsd fs ",
+      "author": "POI",
+      "id": 4
     }
   ],
   "comments": [
@@ -2453,6 +2459,30 @@
       "experience": 5,
       "package": 3,
       "id": 202
+    },
+    {
+      "firstName": "modi",
+      "lastName": "bixa",
+      "email": "modi.bixa0@gmail.com",
+      "dob": "",
+      "gender": "male",
+      "education": "Intermediate",
+      "company": "SDDN",
+      "experience": 2,
+      "package": 3,
+      "id": 203
+    },
+    {
+      "firstName": "modi",
+      "lastName": "bixa",
+      "email": "modi.bixa4@gmail.com",
+      "dob": "2023-04-04T17:00:00.000Z",
+      "gender": "",
+      "education": "Post Graduate",
+      "company": "SDDN",
+      "experience": 3,
+      "package": 3,
+      "id": 204
     }
   ]
 }

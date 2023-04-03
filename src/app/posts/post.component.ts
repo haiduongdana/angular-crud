@@ -18,6 +18,7 @@ export class PostComponent implements OnInit {
     'title',
     'content',
     'author',
+    'action',
   ];
   dataSource!: MatTableDataSource<any>;
 
