@@ -7,7 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { EmpComponent } from './emp-add-edit/emp.component';
 import { EmpAddEditComponent } from './emp-add-edit/emp-add-edit.component';
+import { PostComponent } from './posts/post.component';
+import { PostsFormComponent } from './posts/posts.form.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +26,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
-  declarations: [AppComponent, EmpAddEditComponent],
+  declarations: [AppComponent, EmpComponent, EmpAddEditComponent, PostComponent, PostsFormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
